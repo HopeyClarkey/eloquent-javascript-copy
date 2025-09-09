@@ -28,7 +28,7 @@ LOGS =>
 
 function triangles(input) { //function takes input number
   for (let line = "#"; line.length <= input; line += "#") //create loop that:
-  //dec line variable as #, how many loops determined with length, & new line created with +=
+  //variable as #, how many loops determined with length, & new line created with +=
   console.log(line); // prints the loop
 
 };
@@ -89,11 +89,20 @@ LOGS =>
 
 */
 
-function drawChessboard(x) {
-
-
+function drawChessboard(number) {
+  let board = ''; // create string for board
+  for (let i = 0; i < number; i++){ //create loop for board rows
+    for (let y = 0; y < number; y++){
+    if ((number + i) % 2 === 0){ //creates 'every other' by dividing by 2
+      board += ' '; // inserts space for 'every other'    
+    } else { //otherwise creates 'every'
+      board += "#"; // inserts # for 'every'
+    } // closes 'every'
+  } //closes 'every other'
+    board += "\n"; //creates a new line break
+  console.log(board); //prints board
+  }
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
