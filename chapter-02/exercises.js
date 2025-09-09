@@ -26,7 +26,11 @@ LOGS =>
 
 */
 
-function triangles() {
+function triangles(input) { //function takes input number
+  for (let line = "#"; line.length <= input; line += "#") //create loop that:
+  //dec line variable as #, how many loops determined with length, & new line created with +=
+  console.log(line); // prints the loop
+
 };
 
 
