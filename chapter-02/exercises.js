@@ -27,8 +27,7 @@ LOGS =>
 */
 
 function triangles() {
-  
-}
+};
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +47,12 @@ on the number:
 */
 
 function fizzBuzz(start, end) {
-  
+   for (i = start; i <= end; i++){ // create loop to go from start to end
+    let output = ""; //create output string
+    if (i % 3 === 0) output += "fizz"; // if iteration is divisible by 3, add 'fizz'
+    if (i % 5 === 0) output += "buzz"; // if i is % by 5, add 'buzz'
+    console.log (output || i); // print the output or i when looping
+   };
 }
 
 ////////////////////////////////////////////////////////////////////////////////
