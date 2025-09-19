@@ -16,17 +16,17 @@ function min(argOne, argTwo) {
 
 function isEven(num) {
   //base case
-  if (num < 0){
+  if (num < 0){ //what to do if negative, opposite count
     return isEven(num +2);
   }
-  if (num === 0){
+  if (num === 0){ //eventually get to this number which is even
   return true;
   };
-  if (num === 1){
+  if (num === 1){ //or eventually get to this number, odd
   return false;
   }
   //recursion
-  return isEven(num - 2);
+  return isEven(num - 2); //number has to be reduced by 2 to find 0 or 1
 
 }
 
@@ -34,15 +34,22 @@ function isEven(num) {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
-
+function countChars(strng, char) {
+  let counted = 0; //accumulator created
+  for (let i = 0; i <strng.length; i++){ //loops through word
+    if (strng[i] === char){ //compares character
+      counted += 1; //adds count to counted
+    }
+  }
+ return counted; //returns the count
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
+function countBs(string) {
+  return countChars(string, "B"); //runs countchars on string with B as what to search for
 
 }
 
