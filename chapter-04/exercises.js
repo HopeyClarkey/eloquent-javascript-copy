@@ -2,8 +2,24 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(numOne, numTwo, step) {
+  let stArr =[]; //create storage array
+  if (step == null){ //create case for when no step is given, can be 1
+    step = 1;
+  }
+  if (numOne === numTwo){ //create case for when numbers passed are the same
+    return stArr;
+  } 
+  if (step > 0){ // create case for when number is positive
+      for (let i = numOne; i <= numTwo; i += step){ //normal for loop with step
+      stArr.push(i); 
+    } 
+  } else { //create case for when is negative
+      for (let i = numOne; i >= numTwo; i += step){ // 
+      stArr.push(i);
+    }
+  }
+return stArr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
