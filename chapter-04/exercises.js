@@ -61,7 +61,7 @@ function reverseArrayInPlace(array) {
 
 function arrayToList(array) {
   let rest = null;
-  for (let i = array.length; i >= 0; i --){
+  for (let i = array.length -1; i >= 0; i--){
     rest = {value: array[i], rest : rest};
   }
   return rest;
