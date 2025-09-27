@@ -33,18 +33,42 @@ function loop(start, test, update, body) {
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
-
+function every(array, test) {
+//declare function that takes in an array and a predicate test?????
+  for (let element of array){
+//declare 'element' as current iteration of array through for/of
+    if(!test(element)) return false; //??why can we do if this way???
+//if the element does not pass the test, return false(as can quit looping);
+  } //close for loop
+return true;
+//return true if all pass
 }
+
+function every2(array, test){
+//declare every2, which takes in an array and a test
+  return !array.some(element => !test(element));
+//return !the opposite? of array, with .some((tests if 1 element in array passes))
+//                define element as iteration, opposite the test on the element?
+}
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(text) {
+//declare a function called dominantDirection that takes in a text as a param
+  let counted = countBy(text, char =>{
+//declare counted to be countBy called on text, with element char declared, inside
+//the countby function
+  let script = characterScript(char.codePointAt(0));
+  
+  return script ? script.direction : "none" ;
+  }).filter(({name}) => name != "none");
+  if (counted.length == 0) return 'ltr';
 
+  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
 }
-
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
