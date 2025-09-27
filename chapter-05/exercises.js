@@ -2,17 +2,32 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
-
+function flatten(array) {
+//declare flatten function that takes in an array
+  let flattened = array.reduce((flat, current) => flat.concat(current), []);
+//reduce the array by declaring flat as the accumulator, current as the loop 
+// iteration, and then concat flat and current in an empty array
+  return flattened;
+//return the new array
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
-
+function loop(start, test, update, body) {
+//declare a loop function that takes in 4 params, a start value, a test function,
+//an update function, and a body function.
+  for (let value = start; test(value); value = update(value)){
+//each loop, it should run test function on current loop value, and stop if that
+//returns false. It should then:
+    body(value);
+// call the body function, giving it the current value, and finally call the 
+//update function to create a new value and start over from the beginning
+  }
 }
+
+//??//??//??//??//??//??
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
