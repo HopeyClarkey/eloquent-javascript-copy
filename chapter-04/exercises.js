@@ -122,7 +122,31 @@ function nth(list, n) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(a, b) {
+//declare function deepEqual that takes in two params, a & b
+
+  if (a === b) return true;
+//if this is strictly true, we return true, easy, done!
+
+  if (a == null || typeof a != 'object' ||
+// if, (a is loosely equal to null OR type of a is not an object) OR 
+      b == null || typeof b != 'object') return false;
+// (if b is loosely equal to null OR type of b is not an object), return false
+
+// if neither of those is true:
+  let keysA = Object.keys(a), keysB = Object.keys(b);
+// delare keysA to be A's keys, same for keysB
+  if (keysA.length != keysB.length) return false;
+// if the objects aren't the same size, return false, they aren't equal
+
+  for ( let key of keysA) {
+// finally, loop through object and compare keysA themselves.
+    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+//do b keys even include the key OR if you can't call deepEqual again on the keys
+  }
+  return true;
+// at last, return true, they are all equal
+
 
 }
 
