@@ -51,9 +51,7 @@ function reverseArray(array) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace(array) {
-  for (i = 0; i < array.length; i ++){
-    array.unshift(array[i]);
-  }
+  let arr2  = array.reverse();
   return array;
 }
 
@@ -61,18 +59,43 @@ function reverseArrayInPlace(array) {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+  let rest = null;
+  for (let i = array.length; i >= 0; i --){
+    rest = {value: array[i], rest : rest};
+  }
+  return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function listToArray() {
-
+let list1 = {
+  value:10,
+  rest: {
+    value: 20,
+    rest: {
+      value: 30,
+      rest: null
+    }
+  }
 }
+//^^this is a list, object created out of nested objects
 
+function listToArray(list, array = []) {
+// base
+  if (list.rest === null){
+    array.push(list.value);
+    return array;
+  }
+//recursion
+
+  //how to update array so that it includes the current value
+  array.push(list.value);
+  return listToArray(list.rest, array);
+
+}  
+console.log(listToArray(list1)); //should return [10, 20, 30]
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
